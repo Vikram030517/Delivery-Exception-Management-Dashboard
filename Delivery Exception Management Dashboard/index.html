@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delivery Exception Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Delivery Exception Management Dashboard</h1>
+  </header>
+
+  <main>
+    <!-- Filters -->
+    <section class="filters">
+      <h2>Filters</h2>
+      <label for="filterType">Issue Type:</label>
+      <select id="filterType">
+        <option value="all">All</option>
+        <option value="Address Not Found">Address Not Found</option>
+        <option value="Customer Not Available">Customer Not Available</option>
+        <option value="Payment Issue">Payment Issue</option>
+        <option value="Package Damaged">Package Damaged</option>
+      </select>
+
+      <label for="filterStatus">Status:</label>
+      <select id="filterStatus">
+        <option value="all">All</option>
+        <option value="Open">Open</option>
+        <option value="Resolved">Resolved</option>
+      </select>
+    </section>
+
+    <!-- Exception Form -->
+    <section class="form-section">
+      <h2>Report Delivery Issue</h2>
+      <form id="exceptionForm">
+        <input type="text" id="deliveryId" placeholder="Delivery ID" required>
+        <input type="text" id="customerName" placeholder="Customer Name" required>
+
+        <select id="issueType" required>
+          <option value="">Select Issue Type</option>
+          <option value="Address Not Found">Address Not Found</option>
+          <option value="Customer Not Available">Customer Not Available</option>
+          <option value="Payment Issue">Payment Issue</option>
+          <option value="Package Damaged">Package Damaged</option>
+        </select>
+
+        <fieldset class="priority">
+          <legend>Priority</legend>
+          <label><input type="radio" name="priority" value="Low" required> Low</label>
+          <label><input type="radio" name="priority" value="Medium"> Medium</label>
+          <label><input type="radio" name="priority" value="High"> High</label>
+        </fieldset>
+
+        <textarea id="notes" placeholder="Notes (optional)"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Dashboard Table -->
+    <section class="dashboard-section">
+      <h2>Reported Issues</h2>
+      <table id="dashboard">
+        <thead>
+          <tr>
+            <th>Delivery ID</th>
+            <th>Customer Name</th>
+            <th>Issue Type</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Bonus: Issue Counts -->
+    <section id="issueCounts">
+      <h2>Summary</h2>
+      <p>Open Issues: <span id="openCount">0</span></p>
+      <p>Resolved Issues: <span id="resolvedCount">0</span></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; GreyAtom Logistics Pvt. Ltd. Internal Tool</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
